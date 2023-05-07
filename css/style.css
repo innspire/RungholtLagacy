@@ -1,0 +1,36 @@
+.strecken {
+	transform:scale(3,2);
+	-webkit-transform:scale(3,2);
+	display:inline-block;	
+}
+
+.bg-blue {
+	background-color: #2C3D58;	
+}
+
+.text-blue {
+    color:rgba(47,33,134,1.00);
+}
+.bg-yellow {
+	background-color: rgba(243,190,64,1.00);
+}
+
+.logo {
+    margin: auto;
+    width: 50px;
+}
+
+footer {
+    padding-top: 3rem;
+    padding-bottom: 3rem;
+}
+
+.blue-link {
+    color:rgba(47,33,134,1.00) !important;
+}
+
+@media (max-width: 767px) {
+    .big-headline {
+      font-size:24Px;  
+    }
+  }

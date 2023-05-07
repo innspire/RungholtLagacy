@@ -1,0 +1,9 @@
+#bild1 {
+ position:absolute; top:0Px; left:0Px; z-index:1;
+ }
+ #bild2{
+ position:absolute; top:40Px; left:30Px; z-index:2;
+ }
+ #bild3{
+ position:absolute; top:80Px; left:100Px; z-index:3;
+ }
