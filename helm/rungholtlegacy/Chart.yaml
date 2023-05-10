@@ -1,0 +1,7 @@
+apiVersion: v2
+name: rungholtlegacy-helm
+version: 0.1.0
+description: Helm Chart for rungholt legacy website
+type: application
+dependencies: []
+appVersion: "0.0.0" 

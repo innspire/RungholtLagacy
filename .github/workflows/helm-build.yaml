@@ -1,0 +1,28 @@
+name: helm-build-main
+on:
+  push:
+    branches: [ "main" ]
+jobs:
+  build:
+    runs-on: self-hosted
+    permissions:
+      packages: write
+      contents: read
+      security-events: write
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v3
+      - name: Login to GHCR
+        shell: bash
+        run: |
+          echo ${{ secrets.GITHUB_TOKEN }} | helm registry login ghcr.io/innspire --username ${{ github.actor }} --password-stdin
+      - name: Install PyBump
+        run: |
+          python3 -m pip install pybump
+        shell: bash
+      - name: Helm Chart
+        shell: bash
+        run: |
+          version=$(pybump get --file ./helm/rungholtlegacy/Chart.yaml)
+          helm package ./helm/rungholtlegacy --version $version
+          helm push rungholtlegacy-helm-$version.tgz oci://ghcr.io/innspire

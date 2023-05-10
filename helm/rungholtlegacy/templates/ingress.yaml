@@ -1,0 +1,24 @@
+{{- if .Values.ingress.enabled -}}
+{{- $fullName := include "rungholtlegacy.fullname" . -}}
+apiVersion: networking.k8s.io/v1
+kind: Ingress
+metadata:
+  name: {{ include "rungholtlegacy.fullname" . }}
+  namespace: {{ .Release.Namespace }}
+  labels:
+    {{- include "rungholtlegacy.labels" . | nindent 4 }}
+spec:
+  rules:
+    {{- range .Values.ingress.hosts }}
+    - host: "{{ toYaml . }}"
+      http:
+        paths:
+        - backend:
+            service:
+              name: {{ $fullName }}
+              port:
+                number: 80
+          path: /
+          pathType: Prefix
+    {{- end }}
+{{- end }}

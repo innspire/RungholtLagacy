@@ -1,0 +1,27 @@
+fullnameOverride: ""
+nameOverride: ""
+
+global:
+  imagePullSecrets: []
+  podSecurityContext: {}
+  securityContext: {}
+  pullPolicy: Always
+
+image:
+  repository: ghcr.io/innspire/rungholtlegacy
+  tag: "latest"
+ingress:
+  enabled: false
+  hosts:
+  - example.com
+replicaCount: 1
+resources: {}
+pdb:
+  create: false
+  minAvailable: 1
+  maxUnavailabe: ""
+nodeSelector: {}
+affinity: {}
+tolerations: []
+probes:
+  enabled: true
