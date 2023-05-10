@@ -1,5 +1,5 @@
 FROM nginx:alpine
-WORKDIR /usr/share/nginx/
+WORKDIR /usr/share/nginx/html
 COPY html .
 COPY ./build/nginx.conf /etc/nginx/nginx.conf
 RUN touch /var/run/nginx.pid
